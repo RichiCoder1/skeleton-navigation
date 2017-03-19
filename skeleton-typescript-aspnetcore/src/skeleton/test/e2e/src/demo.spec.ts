@@ -12,22 +12,25 @@ describe('aurelia skeleton app', function() {
     browser.loadAndWaitForAureliaPage("http://localhost:5000");
   });
 
-  it('should load the page and display the initial page title', () => {
-    expect(po_skeleton.getCurrentPageTitle()).toBe('Welcome | Aurelia');
+  it('should load the page and display the initial page title', async (done) => {
+    expect(await po_skeleton.getCurrentPageTitle()).toBe('Welcome | Aurelia');
+    done();
   });
 
-  it('should display greeting', () => {
-    expect(po_welcome.getGreeting()).toBe('Welcome to the Aurelia Navigation App!');
+  it('should display greeting', async (done) => {
+    expect(await po_welcome.getGreeting()).toBe('Welcome to the Aurelia Navigation App!');
+    done();
   });
 
-  it('should automatically write down the fullname', () => {
+  it('should automatically write down the fullname', async (done) => {
     po_welcome.setFirstname('Rob');
     po_welcome.setLastname('Eisenberg');
 
     // For now there is a timing issue with the binding.
     // Until resolved we will use a short sleep to overcome the issue.
     browser.sleep(200);
-    expect(po_welcome.getFullname()).toBe('ROB EISENBERG');
+    expect(await po_welcome.getFullname()).toBe('ROB EISENBERG');
+    done();
   });
 
 /*
@@ -37,8 +40,9 @@ describe('aurelia skeleton app', function() {
   });
 */
 
-  it('should navigate to users page', () => {
+  it('should navigate to users page', async (done) => {
     po_skeleton.navigateTo('#/users');
-    expect(po_skeleton.getCurrentPageTitle()).toBe('Github Users | Aurelia');
+    expect(await po_skeleton.getCurrentPageTitle()).toBe('Github Users | Aurelia');
+    done();
   });
 });

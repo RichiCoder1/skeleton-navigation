@@ -19,7 +19,7 @@
     "gulp-protractor": "3.0.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-tslint": "^6.0.2",
-    "gulp-typescript": "^2.13.6",
+    "gulp-typescript": "^3.1.6",
     "isparta": "^4.0.0",
     "jasmine-core": "^2.4.1",
     "jspm": "^0.16.41",
@@ -48,7 +48,9 @@
     "prepublish": "npm run jspm-install && npm run typings-install",
     "jspm-install": "cross-env ./node_modules/.bin/jspm install -y",
     "typings-install": "cross-env ./node_modules/.bin/typings install",
+    "build": "gulp build",
     "test": "gulp test",
+    "update-web-driver": "gulp webdriver-update",
     "e2e": "gulp serve e2e"
   },
   "jspm": {

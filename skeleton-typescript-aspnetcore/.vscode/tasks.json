@@ -1,0 +1,43 @@
+{
+    "version": "0.1.0",
+    "isShellCommand": true,
+    "args": [],
+    "tasks": [
+        {
+            "taskName": "DotNet Build",
+            "command": "dotnet",
+            "suppressTaskName": true,
+            "args": [
+                "build",
+                "${workspaceRoot}\\src\\skeleton\\skeleton.csproj"
+            ],
+            "isBuildCommand": true,
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "Frontend Build",
+            "command": "npm",
+            "suppressTaskName": true,
+            "args": [
+                "build"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/src/skeleton"
+            },
+            "isShellCommand": true,
+            "problemMatcher": "$gulp-tsc"
+        },
+        {
+            "command": "npm",
+            "taskName": "Frontend Unit Tests",
+            "args": [
+                "test"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/src/skeleton"
+            },
+            "isTestCommand": true,
+            "isShellCommand": true
+        }
+    ]
+}

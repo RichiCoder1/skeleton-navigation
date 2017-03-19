@@ -25,7 +25,7 @@ gulp.task('build-system', function() {
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(changed(paths.output, {extension: '.ts'}))
     .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(typescript(typescriptCompiler))
+    .pipe(typescriptCompiler())
     .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '/src'}))
     .pipe(gulp.dest(paths.output));
 });
